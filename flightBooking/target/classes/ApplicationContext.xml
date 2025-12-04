@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- DAO beans -->
+    <bean id="flightDAO" class="com.flightBooking.dao.FlightDAOImpl"/>
+    <bean id="bookingDAO" class="com.flightBooking.dao.BookingDAOImpl"/>
+
+    <!-- Utility beans -->
+    <bean id="fareCalculator" class="com.flightBooking.util.DefaultFareCalculator"/>
+    <bean id="notificationService" class="com.flightBooking.util.EmailNotificationService"/>
+
+    <!-- Service beans -->
+    <bean id="flightService" class="com.flightBooking.service.FlightServiceImpl">
+        <constructor-arg ref="flightDAO"/>
+    </bean>
+
+    <bean id="bookingService" class="com.flightBooking.service.BookingServiceImpl">
+        <constructor-arg ref="bookingDAO"/>
+        <constructor-arg ref="flightDAO"/>
+        <constructor-arg ref="fareCalculator"/>
+        <!-- optional dependency via setter -->
+        <property name="notificationService" ref="notificationService"/>
+    </bean>
+
+</beans>

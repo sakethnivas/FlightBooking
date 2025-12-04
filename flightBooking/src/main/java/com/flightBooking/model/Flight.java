@@ -15,8 +15,9 @@ public class Flight {
 	private int totalSeats;
 	private int availableSeats;
 	private FlightStatus status;
-	
-	public Flight() {}
+
+	public Flight() {
+	}
 
 	public Flight(String flightId, String airlineName, String source, String destination, LocalDate travelDate,
 			LocalTime departureTime, LocalTime arrivalTime, double baseFare, int totalSeats, int availableSeats,
@@ -130,6 +131,5 @@ public class Flight {
 				+ arrivalTime + ", baseFare=" + baseFare + ", totalSeats=" + totalSeats + ", availableSeats="
 				+ availableSeats + ", status=" + status + "]";
 	}
-	
-	
+
 }

@@ -6,8 +6,9 @@ public class Passenger {
 	private String gender;
 	private String contactNumber;
 	private String email;
-	
-	public Passenger() {}
+
+	public Passenger() {
+	}
 
 	public Passenger(String name, int age, String gender, String contactNumber, String email) {
 		super();
@@ -63,6 +64,5 @@ public class Passenger {
 		return "Passenger [name=" + name + ", age=" + age + ", gender=" + gender + ", contactNumber=" + contactNumber
 				+ ", email=" + email + "]";
 	}
-	
-	
+
 }
